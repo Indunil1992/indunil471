@@ -4,21 +4,21 @@ const sns = new AWS.SNS();
 exports.handler = function (event, context, callback) {
 
     sns.publish({
-        Message: 'test run',
+        Message: 'test by indunil 1111',
         Subject: 'check SNS',
         MessageAttributes: {},
         MessageStructure: 'String',
         TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'
     }).promise()
         .then(data => {
-             console.log("success" + { data });
+            console.log("success" + { data });
             callback(null, "Successfully executed to enduser data" + { data });
 
             // your code goes here
         })
         .catch(err => {
             // error handling goes here
-             console.log("error " + { err });
+            console.log("error " + { err });
             callback(null, "Successfully executed to enduser catch" + { err });
 
         });
