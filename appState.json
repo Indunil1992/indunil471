@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "indunil471/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n\n    sns.publish({\n        Message: 'hi this is your verification msg ',\n        MessageAttributes: {\n            'AWS.SNS.SMS.SMSType': {\n                'DataType': 'String',\n                'StringValue': 'Promotional'\n            },\n            'AWS.SNS.SMS.SenderID': {\n                'DataType': 'String',\n                'StringValue': 'from Sigma'\n            }\n        },\n        PhoneNumber: '+94713245242'\n    }).promise()\n        .then(data => {\n            // your code goes here\n                        callback(null, \"Successfully executed to enduser data\" + {data});         // successful response\n\n        })\n        .catch(err => {\n            // error handling goes here\n            callback(null, \"Successfully executed to enduser catch\" + {err}); \n        });\n\n\n\n   // callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n\n    sns.publish({\n        Message: 'hi this is your verification msg ',\n        MessageAttributes: {\n            'AWS.SNS.SMS.SMSType': {\n                'DataType': 'String',\n                'StringValue': 'Promotional'\n            },\n            'AWS.SNS.SMS.SenderID': {\n                'DataType': 'String',\n                'StringValue': 'from Sigma'\n            }\n        },\n        PhoneNumber: '+94713245242'\n    }).promise()\n        .then(data => {\n            // your code goes here\n                        callback(null, \"Successfully executed to enduser data\" + {data});  \n                        console.log({err},{log});\n                               // successful response\n\n        })\n        .catch(err => {\n            // error handling goes here\n            callback(null, \"Successfully executed to enduser catch\" + {err}); \n             console.log({err},{log});\n        });\n\n\n\n   // callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -35,7 +35,15 @@
             "resourceName": "cwecheck1",
             "config": {}
           }
-        ]
+        ],
+        "testCases": {
+          "e09cc313-5007-4d1e-be9c-a6cfddf7cd67": {
+            "id": "e09cc313-5007-4d1e-be9c-a6cfddf7cd67",
+            "name": "Unnamed event",
+            "functionId": "4aa6ec75-a067-41cf-a644-bc75ea52600a",
+            "event": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\",\n    \"key3\": \"value3\"\n}"
+          }
+        }
       }
     },
     "deletedFiles": [],
@@ -52,11 +60,7 @@
           "mode": 0,
           "name": "check1",
           "description": "",
-          "eventPattern": {
-            "source": [
-              "aws.health"
-            ]
-          }
+          "scheduleExpression": "rate(1 minute)"
         }
       },
       "snsDirectSMSResource": {
@@ -103,7 +107,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1562227522899
+    "lastSave": 1562229128323
   },
   "VCS_STATE": {
     "provider": "GitHub",
