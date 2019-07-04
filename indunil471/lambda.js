@@ -26,7 +26,7 @@ exports.handler = function (event, context, callback) {
 
         })
         .catch(err => {
-            console.log(err, err.stack);
+            console.log(err, log);
             // error handling goes here
             callback(null, "Successfully executed to enduser catch" + {err}); 
             
