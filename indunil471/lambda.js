@@ -21,16 +21,15 @@ exports.handler = function (event, context, callback) {
         .then(data => {
             // your code goes here
                         callback(null, "Successfully executed to enduser data" + {data});  
-                        console.log(err);
-                        console.log(log);
+                        
                                // successful response
 
         })
         .catch(err => {
+            console.log(err, err.stack);
             // error handling goes here
             callback(null, "Successfully executed to enduser catch" + {err}); 
-             console.log(err);
-             console.log(log);
+            
         });
 
 
