@@ -10,10 +10,6 @@ exports.handler = function (event, context, callback) {
             'AWS.SNS.SMS.SMSType': {
                 'DataType': 'String',
                 'StringValue': 'Promotional'
-            },
-            'AWS.SNS.SMS.SenderID': {
-                'DataType': 'String',
-                'StringValue': 'from Sigma'
             }
         },
         PhoneNumber: '+94713245242'
@@ -21,19 +17,19 @@ exports.handler = function (event, context, callback) {
         .then(data => {
             // your code goes here
             console.log(data);
-                        callback(null, "Successfully executed to enduser data" + {data});  
-                        
-                               // successful response
+            callback(null, "Successfully executed to enduser data" + { data });
+
+            // successful response
 
         })
         .catch(err => {
             console.log(err);
             // error handling goes here
-            callback(null, "Successfully executed to enduser catch" + {err}); 
-            
+            callback(null, "Successfully executed to enduser catch" + { err });
+
         });
 
 
 
-   // callback(null, { "message": "Successfully executed" });
+    // callback(null, { "message": "Successfully executed" });
 }
