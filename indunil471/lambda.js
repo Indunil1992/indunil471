@@ -5,7 +5,7 @@ exports.handler = function (event, context, callback) {
 
     sns.publish({
         Message: 'test by indunil 1111',
-        Subject: 'check SNS',
+        Subject: 'check SNS indunil',
         MessageAttributes: {},
         MessageStructure: 'String',
         TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'
