@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "indunil471/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    sns.publish({\n        Message: 'test by indunil 1111',\n        Subject: 'check SNS indunil',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'\n    }).promise()\n        .then(data => {\n            console.log(\"success\" + { data });\n            callback(null, \"Successfully executed to enduser data\" + { data });\n\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n            console.log(\"error \" + { err });\n            callback(null, \"Successfully executed to enduser catch\" + { err });\n\n        });\n\n\n\n    // callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n\n    sns.publish({\n        Message: 'test by indunil 1111',\n        Subject: 'check SNS indunil',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:snssns'\n    }).promise()\n        .then(data => {\n            console.log(\"success\" + { data });\n            callback(null, \"Successfully executed to enduser data\" + { data });\n\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n            console.log(\"error \" + { err });\n            callback(null, \"Successfully executed to enduser catch\" + { err });\n\n        });\n\n\n\n    // callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -91,6 +91,24 @@
             }
           ]
         }
+      },
+      "snsusEast1snssns": {
+        "name": "snsusEast1snssns",
+        "type": "SNS",
+        "config": {
+          "topicMode": 0,
+          "topicName": "snssns",
+          "topicArn": "arn:aws:sns:us-east-1:318300609668:snssns",
+          "topicRegion": "us-east-1",
+          "snsType": 0,
+          "topicDisplayName": "sns",
+          "subscriptions": [
+            {
+              "type": "sms",
+              "endpoint": "+94713245242"
+            }
+          ]
+        }
       }
     },
     "customTemplate": {
@@ -126,7 +144,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1562232763162
+    "lastSave": 1562233348807
   },
   "VCS_STATE": {
     "provider": "GitHub",

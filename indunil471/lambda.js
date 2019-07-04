@@ -8,7 +8,7 @@ exports.handler = function (event, context, callback) {
         Subject: 'check SNS indunil',
         MessageAttributes: {},
         MessageStructure: 'String',
-        TopicArn: 'arn:aws:sns:us-east-1:318300609668:TestSNS'
+        TopicArn: 'arn:aws:sns:us-east-1:318300609668:snssns'
     }).promise()
         .then(data => {
             console.log("success" + { data });
